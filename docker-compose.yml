@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: shophub-postgres
+    environment:
+      POSTGRES_USER: shophub
+      POSTGRES_PASSWORD: shophub_password
+      POSTGRES_DB: shophub_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - shophub-network
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U shophub"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: shophub-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - shophub-network
+    restart: always
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  shophub-network:
+    driver: bridge

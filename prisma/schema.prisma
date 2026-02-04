@@ -1,0 +1,164 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ═══════════════════════════════════════════════════════════
+// TENANT MANAGEMENT
+// ═══════════════════════════════════════════════════════════
+
+model Tenant {
+  id              String    @id @default(cuid())
+  
+  businessName    String
+  email           String    @unique
+  phone           String?
+  
+  blueprintId     String    // 'ecommerce', 'jewelry', etc.
+  
+  subdomain       String    @unique
+  customDomain    String?   @unique
+  domainVerified  Boolean   @default(false)
+  
+  settings        Json      @default("{}")
+  theme           Json      @default("{}")
+  
+  status          TenantStatus @default(TRIAL)
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  users           User[]
+  products        Product[]
+  orders          Order[]
+  domains         Domain[]
+  subscription    Subscription?
+
+  @@index([subdomain])
+}
+
+enum TenantStatus {
+  TRIAL
+  ACTIVE
+  SUSPENDED
+  CANCELLED
+}
+
+// ═══════════════════════════════════════════════════════════
+// DOMAIN MANAGEMENT
+// ═══════════════════════════════════════════════════════════
+
+model Domain {
+  id              String       @id @default(cuid())
+  tenantId        String
+  tenant          Tenant       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  
+  domain          String       @unique
+  isPrimary       Boolean      @default(false)
+  verified        Boolean      @default(false)
+  
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @updatedAt
+  
+  @@index([tenantId])
+}
+
+// ═══════════════════════════════════════════════════════════
+// SUBSCRIPTION
+// ═══════════════════════════════════════════════════════════
+
+model Subscription {
+  id              String    @id @default(cuid())
+  tenantId        String    @unique
+  tenant          Tenant    @relation(fields: [tenantId], references: [id])
+  
+  planId          String
+  status          String    // active, past_due
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// ═══════════════════════════════════════════════════════════
+// USER AUTH
+// ═══════════════════════════════════════════════════════════
+
+model User {
+  id              String    @id @default(cuid())
+  tenantId        String
+  tenant          Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  
+  email           String
+  name            String?
+  role            String    @default("STAFF")
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@unique([tenantId, email])
+}
+
+// ═══════════════════════════════════════════════════════════
+// E-COMMERCE CORE
+// ═══════════════════════════════════════════════════════════
+
+model Product {
+  id              String    @id @default(cuid())
+  tenantId        String
+  tenant          Tenant    @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  
+  name            String
+  slug            String
+  price           Decimal   @db.Decimal(10, 2)
+  stock           Int       @default(0)
+  
+  images          Json      @default("[]")
+  blueprintData   Json      @default("{}") // Sector specific data
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  orderItems      OrderItem[]
+
+  @@unique([tenantId, slug])
+}
+
+model Order {
+  id              String    @id @default(cuid())
+  tenantId        String
+  tenant          Tenant    @relation(fields: [tenantId], references: [id])
+  
+  orderNumber     String
+  status          OrderStatus @default(PENDING)
+  total           Decimal   @db.Decimal(10, 2)
+  
+  items           OrderItem[]
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  @@unique([tenantId, orderNumber])
+}
+
+model OrderItem {
+  id              String    @id @default(cuid())
+  orderId         String
+  order           Order     @relation(fields: [orderId], references: [id])
+  productId       String
+  product         Product   @relation(fields: [productId], references: [id])
+  
+  quantity        Int
+  price           Decimal   @db.Decimal(10, 2)
+}
+
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
