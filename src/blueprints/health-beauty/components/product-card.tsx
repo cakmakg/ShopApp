@@ -68,7 +68,7 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
                         onClick={() => onAddToCart?.(product.id, 1)}
                         className="w-full bg-white text-emerald-600 hover:bg-emerald-50"
                     >
-                        Sepete Ekle
+                        In den Warenkorb
                     </Button>
                 </div>
             </div>
@@ -114,11 +114,11 @@ export function ProductCard({ product, onAddToCart }: ProductCardProps) {
                 <div className="flex items-center justify-between">
                     <div className="flex items-baseline gap-2">
                         <span className="text-xl font-bold text-gray-900">
-                            ₺{product.price.toFixed(2)}
+                            €{product.price.toFixed(2)}
                         </span>
                         {product.originalPrice && (
                             <span className="text-sm text-gray-400 line-through">
-                                ₺{product.originalPrice.toFixed(2)}
+                                €{product.originalPrice.toFixed(2)}
                             </span>
                         )}
                     </div>

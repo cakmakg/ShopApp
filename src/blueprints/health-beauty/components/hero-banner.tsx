@@ -12,11 +12,11 @@ interface HeroBannerProps {
 }
 
 export function HeroBanner({
-    title = 'Doğal Güzellik, Sağlıklı Yaşam',
-    subtitle = 'Premium kalite takviye gıdalar ve cilt bakım ürünleri ile sağlığınıza yatırım yapın.',
-    ctaText = 'Ürünleri Keşfet',
+    title = 'Natürliche Schönheit, Gesundes Leben',
+    subtitle = 'Investieren Sie in Ihre Gesundheit mit Premium-Nahrungsergänzungsmitteln und Hautpflegeprodukten.',
+    ctaText = 'Produkte entdecken',
     ctaLink = '/products',
-    secondaryCta = 'Daha Fazla Bilgi',
+    secondaryCta = 'Mehr erfahren',
     secondaryCtaLink = '/about',
 }: HeroBannerProps) {
     return (
@@ -34,7 +34,7 @@ export function HeroBanner({
                         {/* Trust Badge */}
                         <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-sm font-medium text-emerald-700 shadow-sm backdrop-blur">
                             <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
-                            10.000+ Mutlu Müşteri
+                            Über 10.000 zufriedene Kunden
                         </div>
 
                         {/* Title */}
@@ -80,19 +80,19 @@ export function HeroBanner({
                                 <svg className="h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
-                                <span className="text-sm font-medium">Ücretsiz Kargo</span>
+                                <span className="text-sm font-medium">Kostenloser Versand</span>
                             </div>
                             <div className="flex items-center gap-2 text-gray-600">
                                 <svg className="h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
-                                <span className="text-sm font-medium">90 Gün İade</span>
+                                <span className="text-sm font-medium">90 Tage Rückgabe</span>
                             </div>
                             <div className="flex items-center gap-2 text-gray-600">
                                 <svg className="h-5 w-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
                                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                 </svg>
-                                <span className="text-sm font-medium">%100 Doğal</span>
+                                <span className="text-sm font-medium">100% Natürlich</span>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@ export function HeroBanner({
                                 <div className="flex h-full flex-col items-center justify-center">
                                     <div className="mb-4 text-6xl">💊</div>
                                     <p className="text-center text-sm font-medium text-gray-600">
-                                        Premium Takviyeler
+                                        Premium Nahrungsergänzung
                                     </p>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ export function HeroBanner({
                                         <span className="text-lg">⭐</span>
                                     </div>
                                     <div>
-                                        <p className="text-xs text-gray-500">Müşteri Puanı</p>
+                                        <p className="text-xs text-gray-500">Kundenbewertung</p>
                                         <p className="font-bold text-gray-900">4.9/5</p>
                                     </div>
                                 </div>
@@ -133,8 +133,8 @@ export function HeroBanner({
                                         <span className="text-lg">🌿</span>
                                     </div>
                                     <div>
-                                        <p className="text-xs text-gray-500">Organik</p>
-                                        <p className="font-bold text-gray-900">Sertifikalı</p>
+                                        <p className="text-xs text-gray-500">Bio-Qualität</p>
+                                        <p className="font-bold text-gray-900">Zertifiziert</p>
                                     </div>
                                 </div>
                             </div>

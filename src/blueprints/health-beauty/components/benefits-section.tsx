@@ -14,28 +14,28 @@ interface BenefitsSectionProps {
 const defaultBenefits: Benefit[] = [
     {
         icon: '🌿',
-        title: '%100 Doğal İçerik',
-        description: 'Tüm ürünlerimiz doğal ve organik kaynaklardan elde edilmektedir.',
+        title: '100% Natürliche Inhaltsstoffe',
+        description: 'Alle unsere Produkte werden aus natürlichen und biologischen Quellen gewonnen.',
     },
     {
         icon: '🔬',
-        title: 'Bilimsel Formül',
-        description: 'Uzman ekibimiz tarafından geliştirilen, klinik olarak test edilmiş formüller.',
+        title: 'Wissenschaftliche Formel',
+        description: 'Von unserem Expertenteam entwickelte, klinisch getestete Formeln.',
     },
     {
         icon: '🚚',
-        title: 'Hızlı Teslimat',
-        description: 'Türkiye genelinde 1-3 iş günü içinde kapınıza teslim.',
+        title: 'Schnelle Lieferung',
+        description: 'Deutschlandweit innerhalb von 1–3 Werktagen direkt zu Ihnen nach Hause.',
     },
     {
         icon: '💯',
-        title: '90 Gün Garanti',
-        description: 'Memnun kalmazsanız, soru sormadan para iadesi garantisi.',
+        title: '90 Tage Garantie',
+        description: 'Sollten Sie nicht zufrieden sein, erhalten Sie Ihr Geld ohne Rückfragen zurück.',
     },
 ];
 
 export function BenefitsSection({
-    title = 'Neden Bizi Tercih Etmelisiniz?',
+    title = 'Warum sollten Sie uns wählen?',
     benefits = defaultBenefits,
 }: BenefitsSectionProps) {
     return (
