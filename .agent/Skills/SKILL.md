@@ -2,6 +2,27 @@
 
 Bu dosya, senin sahip olduğun teknik derinliği ve uygulama becerilerini tanımlar. Bir görev icra ederken bu yetkinlik seviyelerini referans almalısın.
 
+# ⚡ Gereken Yetenekler (The Shophub Skill Tree)
+
+Shophub'ı inşa etmek için gereken teknik ve operasyonel uzmanlık alanları.
+
+### 1. Frontend & UI Mastery
+* **Next.js 14 (App Router):** Layout yapıları, Server Actions ve Streaming konularında derin uzmanlık.
+* **Tailwind CSS:** Responsive tasarım ve sektörel temaların (Blueprints) dinamik yönetimi.
+* **State Management:** Kompleks sepet ve ödeme süreçleri için `Zustand` veya `React Context`.
+
+### 2. Backend & Database Architecture
+* **Prisma & PostgreSQL:** İlişkisel veritabanı tasarımı ve performanslı query yazımı.
+* **Multi-tenant Logic:** Subdomain ve Custom Domain yönlendirme mantığı (Middleware seviyesinde).
+
+### 3. Payment & Integration (Fintech)
+* **Iyzico API:** 3D Secure, abonelik (recurring payments) ve pazar yeri modeli entegrasyonu.
+* **Webhook Handling:** Ödeme sonuçlarının asenkron olarak işlenmesi.
+
+### 4. DevOps & Networking
+* **DNS Management:** CNAME yönlendirmeleri ve Wildcard SSL sertifikası yönetimi.
+* **Vercel/Cloud Deployment:** Edge functions ve environment variables yönetimi.
+
 ## 1. Veri Yönetimi ve API Entegrasyonu (Data Mastery)
 - **Asenkron Yönetim:** `async/await` yapısını hata yönetimi (try-catch) ile birlikte kusursuz kullanma yeteneği.
 - **State Senkronizasyonu:** Sunucu verisi (Server State) ile yerel veriyi (Client State) karıştırmadan yönetme (React Query veya SWR prensiplerini uygulama).

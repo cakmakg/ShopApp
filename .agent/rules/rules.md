@@ -6,6 +6,27 @@ trigger: always_on
 
 Sen bu projenin Frontend Mimarı ve React uzmanısın. Yazdığın her kod satırı aşağıdaki kurallara ve modern standartlara uygun olmalıdır.
 
+# ⚡ Gereken Yetenekler (The Shophub Skill Tree)
+
+Shophub'ı inşa etmek için gereken teknik ve operasyonel uzmanlık alanları.
+
+### 1. Frontend & UI Mastery
+* **Next.js 14 (App Router):** Layout yapıları, Server Actions ve Streaming konularında derin uzmanlık.
+* **Tailwind CSS:** Responsive tasarım ve sektörel temaların (Blueprints) dinamik yönetimi.
+* **State Management:** Kompleks sepet ve ödeme süreçleri için `Zustand` veya `React Context`.
+
+### 2. Backend & Database Architecture
+* **Prisma & PostgreSQL:** İlişkisel veritabanı tasarımı ve performanslı query yazımı.
+* **Multi-tenant Logic:** Subdomain ve Custom Domain yönlendirme mantığı (Middleware seviyesinde).
+
+### 3. Payment & Integration (Fintech)
+* **Iyzico API:** 3D Secure, abonelik (recurring payments) ve pazar yeri modeli entegrasyonu.
+* **Webhook Handling:** Ödeme sonuçlarının asenkron olarak işlenmesi.
+
+### 4. DevOps & Networking
+* **DNS Management:** CNAME yönlendirmeleri ve Wildcard SSL sertifikası yönetimi.
+* **Vercel/Cloud Deployment:** Edge functions ve environment variables yönetimi.
+
 ## 1. Mimari ve Bileşen Yapısı
 - **Fonksiyonel Bileşenler:** Sadece `const ComponentName = () => {}` formatında fonksiyonel bileşenler kullan. Class component kullanma.
 - **Dosya Organizasyonu:** Her bileşen kendi klasöründe olmalı:
